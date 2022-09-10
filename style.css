@@ -37,7 +37,7 @@ body {
     border-radius: 20px;
 }
 
-.playAgainButton {
+.buttons {
     width: 100px;
     height: 100px;
     top: 100px;
@@ -56,5 +56,17 @@ body {
 }
 
 .playAgain:active {
+    background: darkgrey;
+}
+
+.startGame {
+    box-shadow: 2px 2px black;
+}
+
+.startGame:hover {
+    background: lavender;
+}
+
+.startGame:active {
     background: darkgrey;
 }

@@ -11,11 +11,14 @@
 let grid = document.querySelector(".grid");
 console.log("grid is: ", grid);
 
-let playAgainButton = document.querySelector(".playAgainButton");
-console.log("playAgainButton is: ", playAgainButton);
+let buttons = document.querySelector(".buttons");
+console.log("buttons is: ", buttons);
 
-let playAgain = document.querySelector('.playAgain')
+let playAgain = document.querySelector('.playAgain');
 console.log("this is playAgain: ", playAgain);
+
+let startGame = document.querySelector('.startGame');
+console.log("this is start game: ", startGame)
 
 let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
 console.log('current score is: ', currentScoreDisplay);
