@@ -6,4 +6,55 @@
 #title {
     display: flex;
     justify-content: center;
+    color: white;
+}
+
+body {
+    background-color: rgb(3, 3, 87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    width: 600px;
+    height: 600px;
+    border: 1px solid red;
+}
+
+.grid div {
+    width: 20px;
+    height: 20px;
+}
+
+.snake {
+    background: lightblue;
+}
+
+.apple {
+    background: red;
+    border-radius: 20px;
+}
+
+.playAgainButton {
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playAgain {
+    box-shadow: 2px 2px black;
+}
+
+.playAgain:hover {
+    background: lavender;
+}
+
+.playAgain:active {
+    background: darkgrey;
 }
