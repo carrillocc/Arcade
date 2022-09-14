@@ -14,10 +14,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+    text-align: center;
 }
 
-.grid {
+/* #board {
+    background-color: black;
+} */
+
+/* .grid {
     width: 600px;
     height: 600px;
     border: 1px solid red;
@@ -26,18 +31,18 @@ body {
 .grid div {
     width: 20px;
     height: 20px;
-}
+} */
 
-.snake {
+/* .snake {
     background: lightblue;
-}
+} */
 
 .apple {
     background: red;
     border-radius: 20px;
 }
 
-.buttons {
+.playAgainButton {
     width: 100px;
     height: 100px;
     top: 100px;
