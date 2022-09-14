@@ -63,11 +63,14 @@ const columns = 20;
 const board = document.getElementById('board');
 const context = board.getContext('2d'); //used for drawing on the board;
 
-//snake head (begins at (5, 5) coordinates)
+//snake head 
 let snakeX;
 let snakeY;
 
-//food (begins at (10, 10) coordinates)
+let velocityX = 0;
+let velocityY = 0;
+
+//food
 let foodX;
 let foodY;
 
@@ -78,6 +81,7 @@ board.width = columns * blockSize;
 
 snakeRandomizer();
 foodRandomizer();
+document.addEventListener('keyup', changeDirection);
 update();
 }
 
@@ -94,6 +98,28 @@ function update () {
     context.fillStyle = 'red';
     context.fillRect(foodX, foodY, blockSize, blockSize);
 }
+
+//changing directions (16:31)
+function changeDirection(event) {
+    if(event.code == "ArrowUp") {
+        velocityX = 0;
+        velocityY = -1;
+    }
+    else if(event.code == "ArrowDown") {
+        velocityX = 0;
+        velocityY = 1;
+    }
+    else if(event.code == "ArrowLeft") {
+        velocityX = -1;
+        velocityY = 0;
+    }
+    else if(event.code == "ArrowRight") {
+        velocityX = 1;
+        velocityY = 0;
+    }
+}
+
+
 
 //randomizes the food on the board
 function foodRandomizer() {
