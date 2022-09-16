@@ -86,14 +86,17 @@ let foodY;
 //end of game
 let gameOver = false;
 
+//start of game
+let starter = false;
+
 //start game variable
 let startGame = document.querySelector('.startGame');
 
-// startGame.addEventListener('click', gameStart);
+startGame.addEventListener('click', gameStart);
 
-// function gameStart() {
-//     update();
-// }
+function gameStart() {
+    
+}
 
 
 
