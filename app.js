@@ -104,16 +104,17 @@ let startGame = document.querySelector('.startGame');
 startGame.addEventListener('click', gameStart);
 
 function gameStart() {
-    gameOver = false;
+    renderScore();
+    
 }
 
-
+snakeRandomizer();
+foodRandomizer();
 
 board.height = rows * blockSize;
 board.width = columns * blockSize;
 
-snakeRandomizer();
-foodRandomizer();
+
 document.addEventListener('keyup', changeDirection);
 
 setInterval(update, 1000/10); //every 100 milliseconds runs update function
@@ -137,10 +138,10 @@ function update () {
     if(snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]); //grows segment where food was
         foodRandomizer(); //respawns food to random location function
-        score++;
+        score++; //increases score everytime there is a collision w/ food and snake
         renderScore();
     }
-    console.log(score);
+    
 
     //makes body follow head
     for(let i = snakeBody.length -1; i > 0; i--) {
@@ -173,8 +174,8 @@ function update () {
         output.innerText = 'Game Over';
     }
     //if snake overlaps
-    for (let i = 0; i < snakeBody.lendth; i++) {
-        if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             gameOver = true;
             output.innerText = 'Game Over';
         }
