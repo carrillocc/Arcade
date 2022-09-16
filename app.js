@@ -14,11 +14,6 @@
 // let buttons = document.querySelector(".buttons");
 // console.log("buttons is: ", buttons);
 
-// let playAgain = document.querySelector('.playAgain');
-// console.log("this is playAgain: ", playAgain);
-
-// let startGame = document.querySelector('.startGame');
-// console.log("this is start game: ", startGame)
 
 // let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
 // console.log('current score is: ', currentScoreDisplay);
@@ -56,6 +51,17 @@
 // let interval = 0;
 // console.log('this is the interval', interval);
 
+let playAgain = document.querySelector('.playAgain');
+console.log("this is playAgain: ", playAgain);
+
+//Game over message
+let output = document.getElementById('outputText');
+console.log('this is the output', output);
+
+playAgain.addEventListener('click', function() {
+    location.reload();
+});
+
 //board 
 const blockSize = 25;
 const rows = 20;
@@ -80,15 +86,22 @@ let foodY;
 //end of game
 let gameOver = false;
 
+//start game variable
+let startGame = document.querySelector('.startGame');
 
-window.onload = function () {
+// startGame.addEventListener('click', function() {
+
+// });
+
+
+window.onload = function() {
 board.height = rows * blockSize;
 board.width = columns * blockSize;
 
 snakeRandomizer();
 foodRandomizer();
 document.addEventListener('keyup', changeDirection);
-// update();
+
 setInterval(update, 1000/10); //every 100 milliseconds runs update function
 }
 
@@ -104,6 +117,7 @@ function update () {
     //food rendering
     context.fillStyle = 'red';
     context.fillRect(foodX, foodY, blockSize, blockSize);
+    // context.arc(foodX, foodY, 25, 0, 2 * Math.PI);
 
     //colliding snake and food
     if(snakeX == foodX && snakeY == foodY) {
@@ -122,7 +136,8 @@ function update () {
     }
 
     //Snake rendering
-    context.fillStyle = 'lightblue';
+    context.fillStyle = 'green';
+
     snakeX += velocityX * blockSize; //to move by unit not px
     snakeY += velocityY * blockSize; //to move by unit not px
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
@@ -136,13 +151,13 @@ function update () {
     //out of grid
     if (snakeX < 0 || snakeX > columns * blockSize || snakeY < 0 || snakeY > rows * blockSize) {
         gameOver = true;
-        alert("Game Over");
+        output.innerText = 'Game Over';
     }
     //if snake overlaps
     for (let i = 0; i < snakeBody.lendth; i++) {
         if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             gameOver = true;
-            alert("Game Over");
+            output.innerText = 'Game Over';
         }
     }
 }

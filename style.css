@@ -18,6 +18,11 @@ body {
     text-align: center;
 }
 
+#outputText {
+    color: red;
+    font-size: 80px;
+}
+
 /* #board {
     background-color: black;
 } */
