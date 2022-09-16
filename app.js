@@ -53,7 +53,7 @@ let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
 
 function renderScore() {
     currentScoreDisplay.innerHTML = `Current Score: ${score}`;
-    console.log(currentScoreDisplay.innerHTML);
+    
 }
 
 
@@ -70,8 +70,11 @@ let playAgain = document.querySelector('.playAgain');
 
 //Play again button
 playAgain.addEventListener('click', function() {
-    location.reload();
+    gameOver = false;
+    snakeRandomizer();
+    foodRandomizer();
 });
+
 
 //board 
 const blockSize = 25;
@@ -107,8 +110,6 @@ startGame.addEventListener('click', gameStart);
 function gameStart() {
     renderScore();
     startGame.disabled = true;
-    
-
 
     snakeRandomizer();
     foodRandomizer();
@@ -185,7 +186,7 @@ function gameStart() {
     }
 }
 
-//changing directions --- != prevents snake from going back the direction it came from (16:31)
+//changing directions --- != prevents snake from going back the direction it came from 
 function changeDirection(event) {
     if(event.code == "ArrowUp" && velocityY != 1) {
         velocityX = 0;
