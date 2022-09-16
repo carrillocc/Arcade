@@ -68,7 +68,7 @@ let output = document.getElementById('outputText');
 
 let playAgain = document.querySelector('.playAgain');
 
-
+//Play again button
 playAgain.addEventListener('click', function() {
     location.reload();
 });
@@ -101,28 +101,30 @@ let gameOver = false;
 //start game variable
 let startGame = document.querySelector('.startGame');
 
+//start game button 
 startGame.addEventListener('click', gameStart);
 
 function gameStart() {
     renderScore();
+    startGame.disabled = true;
     
-}
-
-snakeRandomizer();
-foodRandomizer();
-
-board.height = rows * blockSize;
-board.width = columns * blockSize;
 
 
-document.addEventListener('keyup', changeDirection);
+    snakeRandomizer();
+    foodRandomizer();
 
-setInterval(update, 1000/10); //every 100 milliseconds runs update function
+    board.height = rows * blockSize;
+    board.width = columns * blockSize;
 
 
-function update () {
-    if (gameOver) {
-        return;
+    document.addEventListener('keyup', changeDirection);
+
+    setInterval(update, 1000/10); //every 100 milliseconds runs update function
+
+
+    function update () {
+        if (gameOver) {
+            return;
     }
     
     //board rendering
@@ -172,12 +174,13 @@ function update () {
     if (snakeX < 0 || snakeX > columns * blockSize || snakeY < 0 || snakeY > rows * blockSize) {
         gameOver = true;
         output.innerText = 'Game Over';
-    }
+        }
     //if snake overlaps
     for (let i = 0; i < snakeBody.length; i++) {
         if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             gameOver = true;
             output.innerText = 'Game Over';
+            }
         }
     }
 }
