@@ -18,6 +18,11 @@ body {
     text-align: center;
 }
 
+.currentScoreDisplay {
+    color: yellow;
+    font-size: 20px;
+}
+
 #outputText {
     color: red;
     font-size: 80px;

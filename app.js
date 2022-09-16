@@ -15,12 +15,6 @@
 // console.log("buttons is: ", buttons);
 
 
-// let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
-// console.log('current score is: ', currentScoreDisplay);
-
-// let highScoreDisplay = document.querySelector('.highScoreDisplay');
-// console.log('high score is: ', highScoreDisplay);
-
 // let width = 10;
 // console.log('this is the width: ', width);
 
@@ -51,12 +45,29 @@
 // let interval = 0;
 // console.log('this is the interval', interval);
 
-let playAgain = document.querySelector('.playAgain');
-console.log("this is playAgain: ", playAgain);
+let score = 0;
+
+
+let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
+
+
+function renderScore() {
+    currentScoreDisplay.innerHTML = `Current Score: ${score}`;
+    console.log(currentScoreDisplay.innerHTML);
+}
+
+
+let highScoreDisplay = document.querySelector('.highScoreDisplay');
+
+
+
 
 //Game over message
 let output = document.getElementById('outputText');
-console.log('this is the output', output);
+
+
+let playAgain = document.querySelector('.playAgain');
+
 
 playAgain.addEventListener('click', function() {
     location.reload();
@@ -86,8 +97,6 @@ let foodY;
 //end of game
 let gameOver = false;
 
-//start of game
-let starter = false;
 
 //start game variable
 let startGame = document.querySelector('.startGame');
@@ -95,7 +104,7 @@ let startGame = document.querySelector('.startGame');
 startGame.addEventListener('click', gameStart);
 
 function gameStart() {
-    
+    gameOver = false;
 }
 
 
@@ -128,12 +137,17 @@ function update () {
     if(snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY]); //grows segment where food was
         foodRandomizer(); //respawns food to random location function
+        score++;
+        renderScore();
     }
+    console.log(score);
 
     //makes body follow head
     for(let i = snakeBody.length -1; i > 0; i--) {
         snakeBody[i] = snakeBody[i - 1]; //body gets previous x,y coordinates to move forward
+        
     }
+    
 
     //updates 2nd segment to take heads place (if there are body parts in the array)
     if(snakeBody.length) {
