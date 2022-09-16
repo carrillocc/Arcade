@@ -89,12 +89,14 @@ let gameOver = false;
 //start game variable
 let startGame = document.querySelector('.startGame');
 
-// startGame.addEventListener('click', function() {
+// startGame.addEventListener('click', gameStart);
 
-// });
+// function gameStart() {
+//     update();
+// }
 
 
-window.onload = function() {
+
 board.height = rows * blockSize;
 board.width = columns * blockSize;
 
@@ -103,7 +105,7 @@ foodRandomizer();
 document.addEventListener('keyup', changeDirection);
 
 setInterval(update, 1000/10); //every 100 milliseconds runs update function
-}
+
 
 function update () {
     if (gameOver) {
