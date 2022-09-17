@@ -112,7 +112,7 @@ function gameStart() {
     }
 
     function highScoreIncrease() {
-        if (score === highScore) {
+        if ((score -1) === highScore) {
             highScore++;
         }
     };
