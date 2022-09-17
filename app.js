@@ -71,10 +71,14 @@ let playAgain = document.querySelector('.playAgain');
 //Play again button
 playAgain.addEventListener('click', function() {
     gameOver = false;
+    output.innerText = ' ';
     snakeRandomizer();
     foodRandomizer();
-    output.innerText = ' ';
+    score = 0;
+    renderScore();
+    snakeBody = [];
 });
+
 
 
 //board 
@@ -129,16 +133,9 @@ function gameStart() {
             return;
     }
     
-    function drawGame() {
-        clearScreen();
-    }
-
-    function clearScreen() {
     //board rendering
     context.fillStyle = 'black';
     context.fillRect(0, 0, board.width, board.height);
-    }
-    drawGame();
 
     //food rendering
     context.fillStyle = 'red';
@@ -153,11 +150,10 @@ function gameStart() {
         renderScore();
     }
     
-
+    function snakeRender() {
     //makes body follow head
     for(let i = snakeBody.length -1; i > 0; i--) {
         snakeBody[i] = snakeBody[i - 1]; //body gets previous x,y coordinates to move forward
-        
     }
     
 
@@ -177,6 +173,8 @@ function gameStart() {
     for(let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
     }
+}
+snakeRender();
 
     //game over conditions
     //out of grid
