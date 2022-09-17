@@ -1,51 +1,7 @@
-// let snake = {
-//     body: [ [10, 5], [10, 6], [10, 7], [10, 8] ],
-//     nextDirection: [1, 0]
-//   }
 
-//   let gameState = {
-//     apple: [11, 8],
-//     snake: snake // from above
-//   }
-
-// let grid = document.querySelector(".grid");
-// console.log("grid is: ", grid);
-
-// let buttons = document.querySelector(".buttons");
-// console.log("buttons is: ", buttons);
-
-
-// let width = 10;
-// console.log('this is the width: ', width);
-
-// let currentIndex = 0;
-// console.log('this is the current index: ', currentIndex);
-
-// let appleIndex = 0;
-// console.log('this is the current apple index: ', appleIndex);
-
-// let currentSnake = [2, 1, 0];
-// console.log('this is current snake', currentSnake);
-
-// let direction = 1;
-// console.log('this is the direction: ', direction);
-
-// let currentScore = 0;
-// console.log('this is the current score', currentScore);
-
-// let highScore = 0;
-// console.log('this is the high score', highScore);
-
-// let speed = 0.8;
-// console.log('this is the current speed', speed);
-
-// let intervalTime = 0;
-// console.log('this is the interval time', intervalTime);
-
-// let interval = 0;
-// console.log('this is the interval', interval);
 
 let score = 0;
+let highScore = 0;
 
 
 let currentScoreDisplay = document.querySelector('.currentScoreDisplay');
@@ -59,7 +15,9 @@ function renderScore() {
 
 let highScoreDisplay = document.querySelector('.highScoreDisplay');
 
-
+function renderHighScore() {
+    highScoreDisplay.innerHTML = `High Score: ${highScore}`;
+}
 
 
 //Game over message
@@ -116,6 +74,7 @@ startGame.addEventListener('click', gameStart);
 
 function gameStart() {
     renderScore();
+    renderHighScore();
     startGame.disabled = true;
 
     snakeRandomizer();
@@ -151,6 +110,15 @@ function gameStart() {
         score++; //increases score everytime there is a collision w/ food and snake
         renderScore();
     }
+
+    function highScoreIncrease() {
+        if (score === highScore) {
+            highScore++;
+        }
+    };
+    highScoreIncrease();
+    renderHighScore();
+
     
     function snakeRender() {
     //makes body follow head
@@ -212,8 +180,6 @@ function changeDirection(event) {
         velocityX = 1;
         velocityY = 0;
     }
-    console.log(velocityX);
-    console.log(velocityY);
 }
 
 

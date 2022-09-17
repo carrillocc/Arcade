@@ -23,6 +23,11 @@ body {
     font-size: 20px;
 }
 
+.highScoreDisplay {
+    color: yellow;
+    font-size: 16px;
+}
+
 #outputText {
     color: red;
     font-size: 80px;
