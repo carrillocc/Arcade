@@ -77,6 +77,8 @@ playAgain.addEventListener('click', function() {
     score = 0;
     renderScore();
     snakeBody = [];
+    velocityX = 0;
+    velocityY = 0;
 });
 
 
@@ -210,6 +212,8 @@ function changeDirection(event) {
         velocityX = 1;
         velocityY = 0;
     }
+    console.log(velocityX);
+    console.log(velocityY);
 }
 
 
