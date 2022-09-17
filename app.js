@@ -73,6 +73,7 @@ playAgain.addEventListener('click', function() {
     gameOver = false;
     snakeRandomizer();
     foodRandomizer();
+    output.innerText = ' ';
 });
 
 
@@ -120,7 +121,7 @@ function gameStart() {
 
     document.addEventListener('keyup', changeDirection);
 
-    setInterval(update, 1000/10); //every 100 milliseconds runs update function
+    setInterval(update, 1000/7); //every 100 milliseconds runs update function
 
 
     function update () {
@@ -128,9 +129,16 @@ function gameStart() {
             return;
     }
     
+    function drawGame() {
+        clearScreen();
+    }
+
+    function clearScreen() {
     //board rendering
     context.fillStyle = 'black';
     context.fillRect(0, 0, board.width, board.height);
+    }
+    drawGame();
 
     //food rendering
     context.fillStyle = 'red';
