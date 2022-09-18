@@ -86,7 +86,7 @@ function gameStart() {
 
     document.addEventListener('keyup', changeDirection);
 
-    setInterval(update, 1000/7); //every 100 milliseconds runs update function
+    setInterval(update, 1000/8); //every 100 milliseconds runs update function
 
 
     function update () {
