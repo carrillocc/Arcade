@@ -86,7 +86,7 @@ function gameStart() {
 
     document.addEventListener('keyup', changeDirection);
 
-    setInterval(update, 1000/8); //every 100 milliseconds runs update function
+    setInterval(update, 1000/8); //speed 
 
 
     function update () {
@@ -110,7 +110,8 @@ function gameStart() {
         score++; //increases score everytime there is a collision w/ food and snake
         renderScore();
     }
-
+    
+    //high score updating
     function highScoreIncrease() {
         if ((score -1) === highScore) {
             highScore++;
